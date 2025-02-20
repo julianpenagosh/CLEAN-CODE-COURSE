@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ToDo
 {
@@ -52,11 +53,7 @@ namespace ToDo
             {
                 Console.WriteLine("Ingrese el número de la tarea a remover: ");
                 // Show current taks
-                for (int i = 0; i < TaskList.Count; i++)
-                {
-                    Console.WriteLine((i + 1) + ". " + TaskList[i]);
-                }
-                Console.WriteLine("----------------------------------------");
+                ListTasks();
 
                 string line = Console.ReadLine();
                 // Remove one position
@@ -92,10 +89,15 @@ namespace ToDo
 
         public static void ShowMenuTaskList()
         {
+            ListTasks();
+        }
+
+        public static void ListTasks() 
+        {
             if (TaskList == null || TaskList.Count == 0)
             {
-                Console.WriteLine("No hay tareas por realizar");
-            } 
+                Console.WriteLine("No hay tareas aún");
+            }
             else
             {
                 Console.WriteLine("----------------------------------------");
@@ -113,4 +115,5 @@ namespace ToDo
         List = 3,
         Exit = 4
     }
+    
 }
